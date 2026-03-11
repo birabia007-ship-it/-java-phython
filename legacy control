@@ -1,0 +1,54 @@
+print("LEGACY CODE OUTPUT")
+
+p = 100
+q = 3
+t = 0.15
+d = 0.1
+
+total = p * q
+tax = total * t
+discount = total * d
+final = total + tax - discount
+
+print("Total:", total)
+print("Tax:", tax)
+print("Discount:", discount)
+print("Final Price:", final)
+
+print("\nREFACTORED CODE OUTPUT")
+
+
+def calculate_total(price, quantity):
+    return price * quantity
+
+
+def calculate_tax(amount, tax_rate):
+    return amount * tax_rate
+
+
+def calculate_discount(amount, discount_rate):
+    return amount * discount_rate
+
+
+def calculate_final_price(price, quantity, tax_rate, discount_rate):
+    total = calculate_total(price, quantity)
+    tax = calculate_tax(total, tax_rate)
+    discount = calculate_discount(total, discount_rate)
+    return total, tax, discount, total + tax - discount
+
+
+# Input values
+price = 100
+quantity = 3
+tax_rate = 0.15
+discount_rate = 0.1
+
+# Calculate results
+total, tax, discount, final_price = calculate_final_price(
+    price, quantity, tax_rate, discount_rate
+)
+
+print("Total:", total)
+print("Tax:", tax)
+print("Discount:", discount)
+print("Final Price:", final_price)
